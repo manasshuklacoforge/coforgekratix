@@ -1,0 +1,17 @@
+integrations:
+  awsS3:
+    - endpoint: "http://s3.amazonaws.com"
+      s3ForcePathStyle: true
+      accessKeyId: ${AWS_ACCESS_KEY_ID}
+      secretAccessKey: ${AWS_SECRET_ACCESS_KEY}
+catalog:
+  providers:
+    awsS3:
+      kratix-bucket:
+        bucketName: kratix
+        prefix: backstage/
+        region: us-east-2
+        schedule:
+          frequency: { minutes: 1 }
+          timeout: { seconds: 20 }
+ 
